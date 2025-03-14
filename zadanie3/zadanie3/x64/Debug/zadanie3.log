@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\Users\admin-1\Desktop\dmytro\zadanie3\zadanie3\main.cpp(12): warning C4715: "sumaCyfr”: niewszystkie ścieżki kodu zwracają wartość
+  zadanie3.vcxproj -> D:\Users\admin-1\Desktop\dmytro\zadanie3\x64\Debug\zadanie3.exe

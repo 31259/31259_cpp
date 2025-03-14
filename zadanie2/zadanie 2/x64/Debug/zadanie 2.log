@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\Users\admin-1\Desktop\dmytro\zadanie 2\zadanie 2\main.cpp(15): warning C4715: "Fibonacci”: niewszystkie ścieżki kodu zwracają wartość
+  zadanie 2.vcxproj -> D:\Users\admin-1\Desktop\dmytro\zadanie 2\x64\Debug\zadanie 2.exe
