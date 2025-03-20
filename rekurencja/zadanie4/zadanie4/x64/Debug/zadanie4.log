@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\Users\admin-1\Desktop\dmytro\zadanie4\zadanie4\main.cpp(12): warning C4715: "liczbaWystapien”: niewszystkie ścieżki kodu zwracają wartość
+  zadanie4.vcxproj -> D:\Users\admin-1\Desktop\dmytro\zadanie4\x64\Debug\zadanie4.exe
