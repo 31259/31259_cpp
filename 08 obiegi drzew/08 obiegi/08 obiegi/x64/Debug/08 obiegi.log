@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\User\Desktop\Programowanie\08 obiegi\08 obiegi\main.cpp(15,11): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  08 obiegi.vcxproj -> C:\Users\User\Desktop\Programowanie\08 obiegi\x64\Debug\08 obiegi.exe
