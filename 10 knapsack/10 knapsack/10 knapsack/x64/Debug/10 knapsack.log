@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\User\Desktop\Programowanie\10 knapsack\10 knapsack\main.cpp(12,11): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  10 knapsack.vcxproj -> C:\Users\User\Desktop\Programowanie\10 knapsack\x64\Debug\10 knapsack.exe
