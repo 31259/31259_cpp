@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\User\Desktop\Programowanie\11 matrix\matrix\matrix\main.cpp(8,11): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  matrix.vcxproj -> C:\Users\User\Desktop\Programowanie\11 matrix\matrix\x64\Debug\matrix.exe
