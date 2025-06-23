@@ -1,60 +1,86 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <memory>
+
 using namespace std;
 
 struct Node {
-    string value;
-    vector<Node*> children;
+    string data;
+    vector<shared_ptr<Node>> children;
 
-    Node(const string& val) : value(val) {}
+    Node(const string& d) : data(d) {}
 };
 
-void inOrder(Node* node) {
-    if (!node) return;
-    int n = node->children.size();
+void addChild(shared_ptr<Node> parent, shared_ptr<Node> child) {
+    parent->children.push_back(child);
+}
 
-    if (n > 0) inOrder(node->children[0]);
-
-    cout << node->value << " ";
-
-    for (int i = 1; i < n; ++i) {
-        inOrder(node->children[i]);
+void printTree(const shared_ptr<Node>& node, int depth = 0) {
+    for (int i = 0; i < depth; ++i) {
+        cout << " ";
+    }
+    cout << node->data << "\n";
+    for (const shared_ptr<Node>& child : node->children) {
+        printTree(child, depth + 1);
     }
 }
 
-void preOrder(Node* node) {
+void preorder(const shared_ptr<Node>& node) {
     if (!node) return;
-
-    cout << node->value << " ";
-
-    for (Node* child : node->children) {
-        preOrder(child);
+    cout << node->data << endl;
+    for (const auto& child : node->children) {
+        preorder(child);
     }
 }
+
+
+void inorder(const shared_ptr<Node>& node) {
+    if (!node) return;
+    size_t n = node->children.size();
+    for (size_t i = 0; i < n / 2; ++i) {
+        inorder(node->children[i]);
+    }
+    cout << node->data << endl;
+    for (size_t i = n / 2; i < n; ++i) {
+        inorder(node->children[i]);
+    }
+}
+
 
 int main() {
-    Node* root = new Node("CEO");
-    Node* cto = new Node("CTO");
-    Node* cfo = new Node("CFO");
-    Node* coo = new Node("COO");
-    Node* dev1 = new Node("Dev1");
-    Node* dev2 = new Node("Dev2");
+    shared_ptr<Node> root1 = make_shared<Node>("Prezes Sadu Rejonowego");
+    shared_ptr<Node> root2 = make_shared<Node>("Dyrektor Sadu Okregowego");
+    shared_ptr<Node> child1 = make_shared<Node>("I Zespol Kuratorskiej Sluzby Sadowej");
+    shared_ptr<Node> child2 = make_shared<Node>("Wydzialy");
+    shared_ptr<Node> child3 = make_shared<Node>("Samodzielna Sekcja Administracyjna");
 
-    cto->children.push_back(dev1);
-    cto->children.push_back(dev2);
+    shared_ptr<Node> child4 = make_shared<Node>("I Wydzial Cywilny");
+    shared_ptr<Node> child5 = make_shared<Node>("II Wydzial Karny");
+    shared_ptr<Node> child6 = make_shared<Node>("III Wydzial Rodzinny i Nieletnich");
+    shared_ptr<Node> child7 = make_shared<Node>("IV Wydzial Ksiag Wieczystych");
 
-    root->children.push_back(cto);
-    root->children.push_back(cfo);
-    root->children.push_back(coo);
+    addChild(root1, child3);
+    addChild(root2, child3);
 
-    cout << "Pre-order traversal:\n";
-    preOrder(root);
+    addChild(root1, child1);
+    addChild(root1, child2);
 
-    cout << "\n\nIn-order traversal:\n";
-    inOrder(root);
+    addChild(child2, child4);
+    addChild(child2, child5);
+    addChild(child2, child6);
+    addChild(child2, child7);
+
+    cout << "--- Struktura drzewa ---" << endl;
+    printTree(root1);
+    cout << endl;
+
+    cout << "--- Obieg preorder (PLR) ---" << endl;
+    preorder(root1);
+    cout << endl << endl;
+
+    cout << "--- Obieg inorder (LPR) ---" << endl;
+    inorder(root1);
+    cout << endl;
 
     return 0;
 }
-
-
